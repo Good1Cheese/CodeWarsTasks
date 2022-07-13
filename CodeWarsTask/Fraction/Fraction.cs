@@ -1,6 +1,6 @@
-﻿using static CodeWarsTask.Fraction.Program;
+﻿using static CodeWarsKata.Fraction.Program;
 
-namespace CodeWarsTask.Fraction
+namespace CodeWarsKata.Fraction
 {
     public class Fraction
     {

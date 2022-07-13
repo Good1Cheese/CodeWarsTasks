@@ -1,4 +1,4 @@
-﻿namespace CodeWarsTask.Fraction
+﻿namespace CodeWarsKata.Fraction
 {
     public class MixedFriction : Fraction
     {

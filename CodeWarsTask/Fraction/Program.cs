@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodeWarsTask.Fraction
+namespace CodeWarsKata.Fraction
 {
     public class Program
     {

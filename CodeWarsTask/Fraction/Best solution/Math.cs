@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodeWarsTask.Fraction.BestSotution
+namespace CodeWarsKata.Fraction.BestSotution
 {
     public static class Math_1
     {

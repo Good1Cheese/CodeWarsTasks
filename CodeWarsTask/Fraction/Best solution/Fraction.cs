@@ -1,4 +1,4 @@
-﻿namespace CodeWarsTask.Fraction.BestSotution
+﻿namespace CodeWarsKata.Fraction.BestSotution
 {
     public class Fraction
     {
