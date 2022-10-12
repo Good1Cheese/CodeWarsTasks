@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodeWarsTask.Human_readable_duration_format;
+namespace CodeWars.Human_readable_duration_format;
 
 public class Kata
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CodeWarsTask.Adding_Big_Numbers
+namespace CodeWars.Adding_Big_Numbers
 {
     public class Kata
     {

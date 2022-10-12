@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CodeWarsTask.Rot13
+namespace CodeWars.Rot13
 {
     public class Kata
     {

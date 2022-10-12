@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CodeWarsTask.Counting_sheep
+namespace CodeWars.Counting_sheep
 {
     public class Kata
     {

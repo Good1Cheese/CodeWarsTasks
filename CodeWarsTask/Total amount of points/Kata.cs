@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CodeWarsTask.Total_amount_of_points
+namespace CodeWars.Total_amount_of_points
 {
     public class Kata
     {

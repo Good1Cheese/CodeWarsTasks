@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodeWarsTask.Find_the_unknown_digit;
+namespace CodeWars.Find_the_unknown_digit;
 
 public class Kata
 {

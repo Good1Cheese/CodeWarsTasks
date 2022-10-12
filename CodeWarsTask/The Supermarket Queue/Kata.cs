@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace CodeWarsTask.The_Supermarket_Queue
+namespace CodeWars.The_Supermarket_Queue
 {
     public class Kata
     {

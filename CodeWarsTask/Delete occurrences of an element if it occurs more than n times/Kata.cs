@@ -1,15 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CodeWarsTask.Delete_occurrences_of_an_element_if_it_occurs_more_than_n_times
+namespace CodeWars.Delete_occurrences_of_an_element_if_it_occurs_more_than_n_times
 {
     public static class Kata
     {
-        private static void Main()
-        {
-            DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3);
-        }
-
         public static int[] DeleteNth(int[] arr, int x)
         {
             List<int> result = new();

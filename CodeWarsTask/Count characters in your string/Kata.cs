@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CodeWarsTask.Count_characters_in_your_string
+namespace CodeWars.Count_characters_in_your_string
 {
     public class Kata
     {

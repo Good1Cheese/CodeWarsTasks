@@ -1,4 +1,4 @@
-﻿namespace CodeWarsTask.Bouncing_Balls
+﻿namespace CodeWars.Bouncing_Balls
 {
     public class Kata
     {
