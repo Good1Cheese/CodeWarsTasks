@@ -10,11 +10,6 @@ public static class Kata
 
     private static IEnumerable<string> _result;
 
-    private static void Main()
-    {
-        AlphabetPosition("The sunset sets at twelve o' clock.");
-    }
-
     public static string AlphabetPosition(string str)
     {
         _result = from c in str
