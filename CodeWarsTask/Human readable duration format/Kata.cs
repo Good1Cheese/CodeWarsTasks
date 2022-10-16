@@ -1,104 +1,110 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CodeWars.Human_readable_duration_format;
 
 public class Kata
 {
-    //private static void Main()
-    //{
-    //    //Console.WriteLine(HumanTimeFormat.formatDuration(0));
-    //    //Console.WriteLine(HumanTimeFormat.formatDuration(1));
-    //    Console.WriteLine(HumanTimeFormat.formatDuration(62));
-    //    Console.WriteLine(HumanTimeFormat.formatDuration(120));
-    //    Console.WriteLine(HumanTimeFormat.formatDuration(3662));
-    //    Console.WriteLine(HumanTimeFormat.formatDuration(15731080));
-    //    Console.WriteLine(HumanTimeFormat.formatDuration(33243586));
-    //}
-
+    private static void Main()
+    {
+        Console.WriteLine(HumanTimeFormat.formatDuration(3662));
+    }
 }
 
 public class HumanTimeFormat
 {
     private const string NOW = "now";
 
-    private const int SECONDS_IN_YEAR = 31536000;
-    private const int SECONDS_IN_DAY = 86400;
-    private const int SECONDS_IN_HOUR = 3600;
-    private const int SECONDS_IN_MINUTE = 60;
+    private static readonly TimeUnit[] _timeUnits = new TimeUnit[] { new Year(), new Day(), new Hour(), new Minute(), new Second() };
+
+    private static string _result;
 
     public static string formatDuration(int seconds)
     {
-        if (seconds <= 0) { return NOW; }
+        _result = string.Empty;
 
-        int years = GetAnotherUnitCountFromSeconds(ref seconds, SECONDS_IN_YEAR);
-        int days = GetAnotherUnitCountFromSeconds(ref seconds, SECONDS_IN_DAY);
-        int hours = GetAnotherUnitCountFromSeconds(ref seconds, SECONDS_IN_HOUR);
-        int minutes = GetAnotherUnitCountFromSeconds(ref seconds, SECONDS_IN_MINUTE);
+        if (seconds == 0) return NOW;
 
-        TimeUnit[] units = new[]
+        foreach (var unit in _timeUnits)
         {
-            new TimeUnit(nameof(years), years),
-            new TimeUnit(nameof(days), days),
-            new TimeUnit(nameof(hours), hours),
-            new TimeUnit(nameof(minutes), minutes),
-            new TimeUnit(nameof(seconds), seconds)
-        };
+            int converted = unit.ToSeconds(seconds);
 
-        var notNullUnits = from unit in units
-                           where unit.Value > 0
-                           select $"{unit}";
+            if (converted == 0) continue;
 
-        return JoinUnits(notNullUnits);
+            seconds -= unit.SecondsCount * converted;
+
+            AddComma(seconds);
+            AddAnd(seconds);
+
+            _result += unit.ToString(converted);
+        }
+
+        return _result.Trim();
     }
 
-    private static int GetAnotherUnitCountFromSeconds(ref int seconds, int secondsInUnit)
+    private static void AddComma(int seconds)
     {
-        int result = seconds / secondsInUnit;
-        seconds %= secondsInUnit;
+        if (seconds <= 0 || _result == string.Empty) { return; }
+
+        _result += ",";
+    }
+
+    private static void AddAnd(int seconds)
+    {
+        if (seconds != 0 || _result == string.Empty) { return; }
+
+        _result += " and";
+    }
+}
+
+public abstract class TimeUnit
+{
+    public const string WHITE_SPACE = " ";
+    public const string PLURAL_ENDING = "s";
+
+    public abstract int SecondsCount { get; }
+    public abstract string Title { get; }
+
+    public int ToSeconds(int seconds) => seconds / SecondsCount;
+
+    public string ToString(int amount)
+    {
+        string result = string.Format($"{WHITE_SPACE}{amount} {Title}");
+
+        if (amount > 1)
+        {
+            result += PLURAL_ENDING;
+        }
 
         return result;
     }
-
-    private static string JoinUnits(IEnumerable<string> notNullUnits)
-    {
-        return "";
-    }
 }
 
-public class TimeUnit
+public class Year : TimeUnit
 {
-    public const string SEPARATOR = ", ";
-
-    public TimeUnit(string title, int value)
-    {
-        Title = title;
-        Value = value;
-    }
-
-    public int Value { get; set; }
-    public string Title { get; set; }
-
-    public override string ToString()
-    {
-        string result = $"{Value} {Title}";
-
-        if (Value > 1)
-        {
-            return result;
-        }
-
-        return result[..^1];
-    }
+    public override int SecondsCount => 31536000;
+    public override string Title => "year";
 }
 
-public class Seconds : TimeUnit
+public class Day : TimeUnit
 {
-    public Seconds(string title, int value)
-        : base(title, value)
-    {
-    }
+    public override int SecondsCount => 86400;
+    public override string Title => "day";
+}
 
-    public new const string SEPARATOR = "and ";
+public class Hour : TimeUnit
+{
+    public override int SecondsCount => 3600;
+    public override string Title => "hour";
+}
+
+public class Minute : TimeUnit
+{
+    public override int SecondsCount => 60;
+    public override string Title => "minute";
+}
+
+public class Second : TimeUnit
+{
+    public override int SecondsCount => 1;
+    public override string Title => "second";
 }
