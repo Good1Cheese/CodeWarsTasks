@@ -2,14 +2,6 @@
 
 namespace CodeWars.Human_readable_duration_format;
 
-public class Kata
-{
-    private static void Main()
-    {
-        Console.WriteLine(HumanTimeFormat.formatDuration(3662));
-    }
-}
-
 public class HumanTimeFormat
 {
     private const string NOW = "now";
