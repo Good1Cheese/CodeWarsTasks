@@ -137,3 +137,5 @@ _NCrunch*
 *.dtbcache.v2
 *.codewarstask.metadata.v5.1
 *.codewarstask.projects.v5.1
+*.v2
+.vs/CodeWarsTask/v17/.suo
