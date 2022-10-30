@@ -3,11 +3,6 @@ namespace CodeWarsTask.Rock_Paper_Scissors_;
 
 public class Kata
 {
-    private static void Main()
-    {
-        System.Console.WriteLine(new Kata().Rps("paper", "rock"));
-    }
-
     public string Rps(string p1, string p2)
     {
         if (p1 == p2) return "Draw!";
