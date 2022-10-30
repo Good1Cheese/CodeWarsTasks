@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace CodeWarsTask.Is_the_string_uppercase;
+﻿namespace CodeWarsTask.Is_the_string_uppercase;
 
 public static class StringExtensions
 {
