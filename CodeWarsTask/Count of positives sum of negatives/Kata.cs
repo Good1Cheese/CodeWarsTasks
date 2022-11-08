@@ -12,7 +12,7 @@ public class Kata
             return Array.Empty<int>();
         }
 
-        int positive = input.Where(n => n > 0).Sum();
+        int positive = input.Where(n => n > 0).Count();
         int negative = input.Where(n => n < 0).Sum();
 
         return new int[] { positive, negative };
